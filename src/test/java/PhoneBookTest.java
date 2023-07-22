@@ -1,7 +1,9 @@
-import junit.framework.TestCase;
 import ru.netology.PhoneBook;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class PhoneBookTest {
     @Test
@@ -53,5 +55,18 @@ public class PhoneBookTest {
 
         number = phoneBook.findByName("Alice");
         Assertions.assertNull(number);
+    }
+
+    @Test
+    public void testPrintAllNames() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("John Doe", "1234567890");
+        phoneBook.add("Jane Smith", "9876543210");
+        phoneBook.add("Alice Johnson", "5555555555");
+
+        List<String> expectedNames = Arrays.asList("Alice Johnson", "Jane Smith", "John Doe");
+        List<String> actualNames = phoneBook.printAllNames();
+
+        Assertions.assertEquals(expectedNames, actualNames);
     }
 }
