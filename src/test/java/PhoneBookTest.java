@@ -38,4 +38,20 @@ public class PhoneBookTest {
         name = phoneBook.findByNumber("9999999999");
         Assertions.assertNull(name);
     }
+
+    @Test
+    public void testFindByName() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("John Doe", "1234567890");
+        phoneBook.add("Jane Smith", "9876543210");
+
+        String number = phoneBook.findByName("John Doe");
+        Assertions.assertEquals("1234567890", number);
+
+        number = phoneBook.findByName("Jane Smith");
+        Assertions.assertEquals("9876543210", number);
+
+        number = phoneBook.findByName("Alice");
+        Assertions.assertNull(number);
+    }
 }
