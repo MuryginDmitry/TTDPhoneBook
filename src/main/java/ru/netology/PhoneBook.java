@@ -31,6 +31,8 @@ public class PhoneBook {
     }
 
     public List<String> printAllNames() {
-        return null;
+        List<String> names = new ArrayList<>(contacts.keySet());
+        Collections.sort(names);
+        return names;
     }
 }
